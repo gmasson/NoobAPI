@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NoobAPI - API Testing Tool</title>
+	<meta name="description" content="NoobAPI é uma ferramenta de teste de API que facilita a interação e o teste de endpoints de APIs RESTful.">
+	<meta name="keywords" content="API, teste de API, ferramenta de desenvolvimento, RESTful, JSON">
+	<meta name="author" content="Gabriel Masson">
+	<meta name="robots" content="index, follow">
+	<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+	<section class="title">
+		<h1>NoobAPI</h1>
+		<p>Ferramenta de teste de API desenvolvida para facilitar a interação e o teste de endpoints de APIs.</p>
+	</section>
+
+	<main class="container">
+
+		<!-- Painel de Requisição -->
+		<div class="request-panel">
+			<section>
+				<select id="method">
+					<option value="GET">GET</option>
+					<option value="POST">POST</option>
+					<option value="PUT">PUT</option>
+					<option value="DELETE">DELETE</option>
+					<option value="PATCH">PATCH</option>
+				</select>
+				<input type="url" id="url" placeholder="URL da API" required>
+				<input type="text" id="authToken" placeholder="Token de Autorização (Bearer)">
+			</section>
+
+			<section>
+				<h3>Parâmetros</h3>
+				<div id="paramsContainer" class="params-container"></div>
+				<button class="btn" id="addParam">Adicionar</button>
+			</section>
+
+			<section>
+				<h3>Headers</h3>
+				<div id="headersContainer" class="headers-container"></div>
+				<button class="btn" id="addHeader">Adicionar</button>
+			</section>
+
+			<section>
+				<h3>Body</h3>
+				<select id="bodyType">
+					<option value="json">JSON</option>
+					<option value="formdata">Form Data</option>
+					<option value="raw">Raw</option>
+				</select>
+				<textarea id="bodyContent" rows="6" placeholder="Insira o corpo da requisição"></textarea>
+				<section class="request-actions">
+					<button class="btn" id="sendRequest" title="Enviar Requisição">Enviar Requisição</button>
+					<button id="saveTemplate" title="Exportar Dados">Exportar</button>
+					<input type="file" id="loadTemplate" style="display: none;">
+					<button onclick="document.getElementById('loadTemplate').click()" title="Importar Dados">Importar</button>
+				</section>
+			</section>
+		</div>
+
+		<!-- Painel de Resposta -->
+		<div class="response-panel">
+			<section>
+				<input type="text" id="filterResponse" placeholder="Filtrar resposta">
+			</section>
+			<section>
+				<pre id="response">Aguardando requisição...</pre>
+			</section>
+			<section>
+				<button id="copyResponse">Copiar</button>
+			</section>
+		</div>
+
+	</main>
+
+	<footer>
+		<p>Desenvolvido por <a href="https://github.com/gmasson" target="_blank">Gabriel Masson</a></p>
+		<p>Licenciado sob a <a href="https://opensource.org/licenses/MIT" target="_blank">Licença MIT</a> | Visite o repositório no <a href="https://github.com/gmasson/NoobAPI" target="_blank">GitHub</a></p>
+		<p></p>
+	</footer>
+
+	<script src="assets/js/script.js"></script>
+</body>
+</html>
